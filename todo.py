@@ -1,3 +1,4 @@
+from colorama import Fore, Style, init
 from storage import load_tasks
 from task_manager import (
     add_task,
@@ -6,21 +7,27 @@ from task_manager import (
     delete_task
 )
 
+# Initialize Colorama
+init(autoreset=True)
+
+# Load tasks from JSON
 tasks = load_tasks()
 
 while True:
 
-    print("\n" + "=" * 40)
-    print("      TO-DO LIST MANAGER")
-    print("=" * 40)
-    print("1. Add Task")
-    print("2. View Tasks")
-    print("3. Mark Task Completed")
-    print("4. Delete Task")
-    print("5. Exit")
-    print("=" * 40)
+    print(Fore.CYAN + "\n" + "=" * 45)
+    print(Fore.GREEN + "        TO-DO LIST MANAGER")
+    print(Fore.CYAN + "=" * 45)
 
-    choice = input("Enter your choice: ")
+    print(Fore.YELLOW + "1. Add Task")
+    print(Fore.YELLOW + "2. View Tasks")
+    print(Fore.YELLOW + "3. Mark Task Completed")
+    print(Fore.YELLOW + "4. Delete Task")
+    print(Fore.YELLOW + "5. Exit")
+
+    print(Fore.CYAN + "=" * 45)
+
+    choice = input(Fore.WHITE + "Enter your choice: ")
 
     if choice == "1":
         add_task(tasks)
@@ -35,8 +42,8 @@ while True:
         delete_task(tasks)
 
     elif choice == "5":
-        print("\nThank you for using To-Do List Manager!")
+        print(Fore.MAGENTA + "\n👋 Thank you for using To-Do List Manager!")
         break
 
     else:
-        print("\nInvalid Choice! Please try again.")
+        print(Fore.RED + "\n❌ Invalid Choice! Please try again.")
