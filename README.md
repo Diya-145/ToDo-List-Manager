@@ -1,28 +1,34 @@
 # 📝 To-Do List Manager
 
-A simple command-line To-Do List application built using Python.
+A command-line task management application built with Python.
 
-## Features
+## ✨ Features
 
-- Add Tasks
-- View Tasks
-- Delete Tasks
-- Mark Tasks as Completed
-- JSON Storage
+- ✅ Add Tasks
+- ✅ View Tasks
+- ✅ Delete Tasks
+- ✅ Mark Tasks as Completed
+- ✅ Search Tasks
+- ✅ Due Dates
+- ✅ Statistics Dashboard
+- ✅ Export Tasks to CSV
+- ✅ JSON Storage
 
-## Technologies Used
+## 🛠 Tech Stack
 
 - Python
 - JSON
-- File Handling
+- CSV
+- Colorama
 
-## How to Run
+## ▶️ Run
 
 ```bash
+pip install colorama
 python todo.py
 ```
 
-## Project Structure
+## 📂 Project Structure
 
 ```
 ToDo-List-Manager/
@@ -31,5 +37,12 @@ ToDo-List-Manager/
 ├── storage.py
 ├── tasks.json
 ├── README.md
-└── .gitignore
+├── .gitignore
+└── screenshots/
 ```
+
+## 🚀 Future Improvements
+
+- GUI using Tkinter
+- SQLite Database
+- Login System

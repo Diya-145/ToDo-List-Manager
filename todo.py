@@ -6,13 +6,12 @@ from task_manager import (
     mark_completed,
     delete_task,
     search_task,
-    show_statistics
+    show_statistics,
+    export_csv
 )
 
-# Initialize Colorama
 init(autoreset=True)
 
-# Load tasks
 tasks = load_tasks()
 
 while True:
@@ -27,7 +26,8 @@ while True:
     print(Fore.YELLOW + "4. Mark Task Completed")
     print(Fore.YELLOW + "5. Delete Task")
     print(Fore.YELLOW + "6. Statistics")
-    print(Fore.YELLOW + "7. Exit")
+    print(Fore.YELLOW + "7. Export Tasks to CSV")
+    print(Fore.YELLOW + "8. Exit")
 
     print(Fore.CYAN + "=" * 45)
 
@@ -52,6 +52,9 @@ while True:
         show_statistics(tasks)
 
     elif choice == "7":
+        export_csv(tasks)
+
+    elif choice == "8":
         print(Fore.MAGENTA + "\n👋 Thank you for using To-Do List Manager!")
         break
 

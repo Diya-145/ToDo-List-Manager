@@ -1,8 +1,10 @@
 from storage import save_tasks
 from colorama import Fore
+import csv
 
 
 def add_task(tasks):
+
     task = input("Enter task: ").strip()
 
     if task == "":
@@ -128,7 +130,7 @@ def search_task(tasks):
             status = "✅" if task["completed"] else "❌"
 
             print(
-                f"{i}. {status} | {task['priority']} | {task.get('due_date', '-')} | {task['task']}"
+                f"{i}. {status} | {task['priority']} | {task.get('due_date','-')} | {task['task']}"
             )
 
             found = True
@@ -155,3 +157,28 @@ def show_statistics(tasks):
     print(Fore.RED + f"❌ Pending     : {pending}")
 
     print(Fore.CYAN + "=" * 35)
+
+
+def export_csv(tasks):
+
+    with open("tasks.csv", "w", newline="") as file:
+
+        writer = csv.writer(file)
+
+        writer.writerow([
+            "Task",
+            "Priority",
+            "Due Date",
+            "Completed"
+        ])
+
+        for task in tasks:
+
+            writer.writerow([
+                task["task"],
+                task["priority"],
+                task.get("due_date", "-"),
+                task["completed"]
+            ])
+
+    print(Fore.GREEN + "\n✅ Tasks exported successfully to tasks.csv")
