@@ -1,16 +1,18 @@
-from colorama import Fore, Style, init
+from colorama import Fore, init
 from storage import load_tasks
 from task_manager import (
     add_task,
     view_tasks,
     mark_completed,
-    delete_task
+    delete_task,
+    search_task,
+    show_statistics
 )
 
 # Initialize Colorama
 init(autoreset=True)
 
-# Load tasks from JSON
+# Load tasks
 tasks = load_tasks()
 
 while True:
@@ -21,9 +23,11 @@ while True:
 
     print(Fore.YELLOW + "1. Add Task")
     print(Fore.YELLOW + "2. View Tasks")
-    print(Fore.YELLOW + "3. Mark Task Completed")
-    print(Fore.YELLOW + "4. Delete Task")
-    print(Fore.YELLOW + "5. Exit")
+    print(Fore.YELLOW + "3. Search Task")
+    print(Fore.YELLOW + "4. Mark Task Completed")
+    print(Fore.YELLOW + "5. Delete Task")
+    print(Fore.YELLOW + "6. Statistics")
+    print(Fore.YELLOW + "7. Exit")
 
     print(Fore.CYAN + "=" * 45)
 
@@ -36,12 +40,18 @@ while True:
         view_tasks(tasks)
 
     elif choice == "3":
-        mark_completed(tasks)
+        search_task(tasks)
 
     elif choice == "4":
-        delete_task(tasks)
+        mark_completed(tasks)
 
     elif choice == "5":
+        delete_task(tasks)
+
+    elif choice == "6":
+        show_statistics(tasks)
+
+    elif choice == "7":
         print(Fore.MAGENTA + "\n👋 Thank you for using To-Do List Manager!")
         break
 
